@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="abstractFactory.js" ></script>
+    <script src="abstractButton.js" ></script>
+
+    <script src="buttonFactory.js" ></script>
+    <script src="button.js" ></script>
+
+    <script src="inputFactory.js" ></script>
+    <script src="input.js" ></script>
+
+  </head>
+  <body>
+    <div id="example"></div>
+    <script>
+      debugger;
+      var factory = new ButtonFactory();
+      var ele  = factory.create();
+      ele.click();
+
+      var factory = new InputFactory();
+      var ele = factory.create();
+      ele.click();
+
+      /*
+      var factory = new DateTimeFactory();
+      var ele = factory.create();
+      ele.click();
+      */
+
+
+      
+    </script>
+  </body>
+</html>

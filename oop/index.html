@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="abstractFactory.js" ></script>
+    <script src="abstractButton.js" ></script>
+
+    <script src="buttonFactory.js" ></script>
+    <script src="button.js" ></script>
+
+    <script src="inputFactory.js" ></script>
+    <script src="input.js" ></script>
+
+  </head>
+  <body>
+    <div id="example"></div>
+    <script>
+      function Element(tag, id){
+        this.tag = tag;
+        this.id = id;
+      }
+      Element.prototype.log = function(){
+        console.log("tag=["+this.tag+"], id=["+this.id+"]");
+      }
+
+      function Button(tag, id){
+        Element.apply(this,arguments);
+        this.base = Element;
+        this.innerHTML = "按钮";
+      }
+      Button.prototype.log = function(){
+        this.base.log.apply(this);
+        console.log("tag=["+this.tag+"], id=["+this.id+"], innerHTML=["+this.innerHTML+"]");
+      }
+
+      function Input(tag, id){
+        Element.apply(this,arguments);
+        this.base = Element;
+        this.placeHolder = "请输入文本";        
+      }
+      Input.prototype.log = function(){
+        this.base.log.apply(this);
+        console.log("tag=["+this.tag+"], id=["+this.id+"], placeHolder=["+this.placeHolder+"]");
+      }
+
+      var ele = new Button('button', 'btn0');
+      console.log(ele.log())
+
+      var ele2 = new Input('Input', 'input0');
+      console.log(ele2.log())
+
+
+
+
+      
+    </script>
+  </body>
+</html>
